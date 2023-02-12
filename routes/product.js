@@ -29,7 +29,7 @@ router.post('/add', async (req, res) => {
     
 		res.send({success: "Product Added Successfully"})
 	} catch(error){
-		res.send({error})
+		res.send({error: error.message})
 	}
 })
 
@@ -39,7 +39,7 @@ router.get('/', async (req, res) => {
     const products = await Product.find()
 		res.send({products})
 	} catch(error){
-		res.send({error})
+		res.send({error: error.message})
 	}
 })
 

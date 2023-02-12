@@ -17,7 +17,7 @@ router.post('/add', async (req, res) => {
     
 		res.send({success: "Category Added Successfully"})
 	} catch(error){
-		res.send({error})
+		res.send({error: error.message})
 	}
 })
 
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
     const categories = await Category.find()
 		res.send({categories})
 	} catch(error){
-		res.send({error})
+		res.send({error: error.message})
 	}
 })
 

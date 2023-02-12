@@ -1,7 +1,6 @@
 const express = require('express')
 const Order = require('../models/Order')
 const router = express.Router()
-const Product = require('../models/Product')
 
 router.post('/new', async (req, res) => {
 
@@ -10,7 +9,7 @@ router.post('/new', async (req, res) => {
     await order.save()
 		res.send({success: "Order Placed Successfully"})
 	} catch(error){
-		res.send({error})
+		res.send({error: error.message})
 	}
 })
 
@@ -23,7 +22,7 @@ router.post('/update-status', async (req, res) => {
     
 		res.send({success: "Order Status Updated Successfully"})
 	} catch(error){
-		res.send({error})
+		res.send({error: error.message})
 	}
 })
 router.get('/', async (req, res) => {
@@ -35,7 +34,7 @@ router.get('/', async (req, res) => {
 		res.send({orders})
     
 	} catch(error){
-		res.send({error})
+		res.send({error: error.message})
 	}
 })
 
