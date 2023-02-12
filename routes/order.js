@@ -26,6 +26,18 @@ router.post('/update-status', async (req, res) => {
 		res.send({error})
 	}
 })
+router.get('/', async (req, res) => {
+  
+	try{
+    const orders = await Order.aggregate([
+			{ $sort: {"createdAt": -1 }},
+		])
+		res.send({orders})
+    
+	} catch(error){
+		res.send({error})
+	}
+})
 
 module.exports = router
 
