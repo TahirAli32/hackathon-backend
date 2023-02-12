@@ -95,7 +95,7 @@ router.post('/validatetoken', async (req, res) => {
 		else{
 			const user = await User.findById({ _id: decoded._id })
 			if (!user) return res.send({ error: 'Token is Tempered' })
-			res.send({ success: true, id: user._id, name: user.name, profileURL: user.profileURL })
+			res.send({ success: true, id: user._id, name: user.name, profileURL: user.profileURL, isAdmin: user.isAdmin })
 		}
 	})
 })

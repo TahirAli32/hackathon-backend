@@ -5,30 +5,10 @@ const Product = require('../models/Product')
 
 router.post('/new', async (req, res) => {
 
-  const {
-    productName,
-    productDesc,
-    price,
-    unit,
-    category,
-    productSize,
-    productImg
-  } = req.body
-
-  const product = new Product({
-    productName,
-    productDesc,
-    productSize,
-    price,
-    unit,
-    category,
-    productImg
-  })
-
+  const order = new Order(req.body)
 	try{
-    await product.save()
-    
-		res.send({success: "Product Added Successfully"})
+    await order.save()
+		res.send({success: "Order Placed Successfully"})
 	} catch(error){
 		res.send({error})
 	}

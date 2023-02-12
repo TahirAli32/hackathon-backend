@@ -19,12 +19,12 @@ const orderSchema = new mongoose.Schema(
       type: mongoose.Types.ObjectId,
       required: true
     },
-    contactInfo:[{
+    contactInfo:{
       fullName: String,
       email: String,
       mobileNo: String,
       address: String
-    }]
+    }
   }, { timestamps: true }
 )
 
